@@ -1,2 +1,39 @@
-@import './abstracts/variables';
-@import './abstracts/mixins';
+@import '../../sass/abstracts/variables';
+@import '../../sass/abstracts/mixins';
+
+.form {
+    margin-top: 1.5rem;
+    &__group {
+        display: flex;
+        max-width: 85%;
+        margin: 0 auto;
+        label {
+            display: none;
+        }
+        input {
+            height: 55px;
+            font-family: inherit;
+            font-size: 1.2rem;
+            padding: 1rem;
+            border: 0;
+            outline: none;
+            width: 80%;
+            border-radius: 10px 0px 0px 10px;
+            &:placeholder-shown {
+                font-size: .8rem;
+            }
+        }
+        button {
+            width: 20%;
+            background-color: $color-black;
+            transition: background-color .3s;
+            border: 0;
+            outline: none;
+            border-radius: 0px 10px 10px 0;
+            &:hover {
+                background-color: $color-primary;
+            }
+        }
+    }
+    
+}

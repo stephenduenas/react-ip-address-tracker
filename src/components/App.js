@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from './Header/Header';
 
 const App = () => {
     return (
-        <div>Im app!</div>
+        <React.Fragment>
+            <Header/>
+        </React.Fragment>
     );
 };
 
