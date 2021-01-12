@@ -2,3 +2,10 @@
 @import './abstracts/mixins';
 @import './base/typography';
 @import './base/reset';
+
+
+// body {
+//     @include respond-above(xs) {
+//         background-color: blue;
+//     }
+// }
