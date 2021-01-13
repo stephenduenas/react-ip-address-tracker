@@ -6,7 +6,7 @@ const Form = () => {
     return (
         <form className="form" method="POST">
             <div className="form__group">
-                <label for="ip_address">IP Address</label>
+                <label htmlFor="ip_address">IP Address</label>
                 <input id="ip_address" name="ip_address" placeholder="Search for any IP address or domain" type="text"></input>
                 <button type="button">
                     <img src={Arrow} alt="arrow icon"></img>
