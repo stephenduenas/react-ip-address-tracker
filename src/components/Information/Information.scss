@@ -1,2 +1,36 @@
 @import '../../sass/abstracts/variables';
 @import '../../sass/abstracts/mixins';
+
+.information {
+    z-index: 5;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-flow: column;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: $color-white;
+    width: 80%;
+    margin: 0 auto;
+    &__detail {
+        text-align: center;
+        &__title {
+            color: $color-secondary;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: .3rem;
+        }
+        &__description {
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+    }
+    &__detail:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+  
+}
+
