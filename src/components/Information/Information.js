@@ -7,11 +7,11 @@ const Information = () => {
         <div className="information">
             <div className="information__detail">
                 <h2 className="information__detail__title">Ip Address</h2>
-                <p className="information__detail__description">0</p>
+                <p className="information__detail__description">192.212.174.101</p>
             </div>
             <div className="information__detail">
                 <h2 className="information__detail__title">Location</h2>
-                <p className="information__detail__description">Brooklyn</p>
+                <p className="information__detail__description">Brooklyn, NY 10001</p>
             </div>
             <div className="information__detail">
                 <h2 className="information__detail__title">Timezone</h2>

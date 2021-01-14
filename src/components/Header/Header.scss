@@ -11,5 +11,8 @@
         color: $color-white;
         text-align: center;
         padding-top: 1.5rem;
+        @include respond-above(md) {
+            font-size: 2rem;
+        }
     }
 }
