@@ -5,15 +5,26 @@ import Arrow from '../../images/icon-arrow.svg';
 import './Form.scss';
 
 const Form = ({setGeolocation}) => {
-
+    
     const [input_ip_address, setInputIpAddress] = useState('');
 
-    useEffect(() => setGeolocationInfo(), []);
+    const [old_input_ip_address, setOldInputIpAddress] = useState('');
+
+    const [prevent_click, setPreventClick] = useState(false);
+
+    useEffect(() => {
+        (async function() {
+            setInputIpAddress(await setGeolocationInfo());
+        })();
+    }, []);
 
     const handleFormSubmit = async e => {
         e.preventDefault();
-        if(isIpAddressValid()) {
+        if(isIpAddressValid() && old_input_ip_address !== input_ip_address && prevent_click === false) { 
+            setPreventClick(true);
             await setGeolocationInfo(input_ip_address);
+            setOldInputIpAddress(input_ip_address);
+            setPreventClick(false);
         }
     };
 
@@ -22,18 +33,19 @@ const Form = ({setGeolocation}) => {
         if (result === false) {
             return;
         }
-        const {as, ip, location} = result;
+        const {as, ip, location, isp} = result;
         const {city, region, postalCode, timezone, lat, lng} = location;
         const LOCATION = `${city}, ${region} ${postalCode}`;
-        const TIME_ZONE = `UTC ${timezone}`
+        const TIME_ZONE = `UTC ${timezone}`;
         setGeolocation({
             ip_address: ip,
             location: LOCATION,
             time_zone: TIME_ZONE,
-            isp: as.name,
+            isp: !as ? isp : as.name,
             latitude: lat,
             longitude: lng
         });
+        return ip;
     };
 
     function isIpAddressValid() {
