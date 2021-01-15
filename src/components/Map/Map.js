@@ -40,7 +40,7 @@ const Map = ({geolocation}) => {
         };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [latitude, longitude]);
+    }, [latitude, longitude, my_map]);
     
     return (<div id="mapid"></div>);
 };
