@@ -39,7 +39,6 @@ const Map = ({geolocation}) => {
             clearTimeout(TIMEOUT_ID)
         };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [latitude, longitude, my_map]);
     
     return (<div id="mapid"></div>);

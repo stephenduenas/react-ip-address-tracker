@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header/Header';
 import Map from './Map/Map';
 import Information from './Information/Information';
+import Attribution from './Attribution/Attribution';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
             <Header setGeolocation={setGeolocation}/>
             <Information geolocation={geolocation}/>
             <Map geolocation={geolocation}/>
+            <Attribution/>
         </React.Fragment>
     );
 };
