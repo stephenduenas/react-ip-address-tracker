@@ -1,0 +1,63 @@
+@import '../../sass/abstracts/variables';
+@import '../../sass/abstracts/mixins';
+
+.information {
+    z-index: 5;
+    position: absolute;
+    top: 9rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-flow: column;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: $color-white;
+    width: 85%;
+    @include respond-above(xxs) {
+        max-width: 320px;
+    }
+    @include respond-above(sm) {
+        padding: 1rem;
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 70%;
+    }
+    @include respond-above(md) {
+        padding: 1.5rem;
+    }
+    @include respond-above(lg) {
+        top: 11rem;
+    }
+    &__detail {
+        text-align: center;
+        @include respond-above(sm) {
+            text-align: left;
+            display: flex;
+            flex-flow: column;
+            margin-bottom: 0;
+            flex: 200px;
+            padding: .5rem;
+        }
+        &__title {
+            color: $color-secondary;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: .3rem;
+        }
+        &__description {
+            font-size: 1.2rem;
+            font-weight: 500;
+            @include respond-above(sm) {
+                max-width: 150px;
+            }
+        }
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+            @include respond-above(sm) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
