@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-ip-address/static/css/main.fddfe293.chunk.css",
+    "main.js": "/react-ip-address/static/js/main.dad41957.chunk.js",
+    "main.js.map": "/react-ip-address/static/js/main.dad41957.chunk.js.map",
+    "runtime-main.js": "/react-ip-address/static/js/runtime-main.e64357a7.js",
+    "runtime-main.js.map": "/react-ip-address/static/js/runtime-main.e64357a7.js.map",
+    "static/js/2.b87785a6.chunk.js": "/react-ip-address/static/js/2.b87785a6.chunk.js",
+    "static/js/2.b87785a6.chunk.js.map": "/react-ip-address/static/js/2.b87785a6.chunk.js.map",
+    "index.html": "/react-ip-address/index.html",
+    "static/css/main.fddfe293.chunk.css.map": "/react-ip-address/static/css/main.fddfe293.chunk.css.map",
+    "static/js/2.b87785a6.chunk.js.LICENSE.txt": "/react-ip-address/static/js/2.b87785a6.chunk.js.LICENSE.txt",
+    "static/media/icon-arrow.2eaaa5ee.svg": "/react-ip-address/static/media/icon-arrow.2eaaa5ee.svg",
+    "static/media/Header.scss": "/react-ip-address/static/media/pattern-bg.a60a3c85.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e64357a7.js",
+    "static/js/2.b87785a6.chunk.js",
+    "static/css/main.fddfe293.chunk.css",
+    "static/js/main.dad41957.chunk.js"
+  ]
+}
