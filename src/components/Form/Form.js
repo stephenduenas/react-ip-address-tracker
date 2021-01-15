@@ -16,6 +16,7 @@ const Form = ({setGeolocation}) => {
         (async function() {
             setInputIpAddress(await setGeolocationInfo());
         })();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleFormSubmit = async e => {
