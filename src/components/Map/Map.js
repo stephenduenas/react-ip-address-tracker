@@ -1,32 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Leaflet from 'leaflet';
 import './Map.scss';
 
-const Map = () => {
+const Map = ({geolocation}) => {
 
+    const {latitude, longitude} = geolocation;
     const ACCESS_TOKEN = 'pk.eyJ1Ijoic3RlcGhlbm1pZ3VlbGR1ZW5hcyIsImEiOiJja2p2OG5yNTkxemZnMnpwNWV0cThrM2o3In0.yszjkHaWr_Wau66qSXrniQ';
     const ATTRIBUTION = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
     const ID = 'mapbox/streets-v11';
+    const [my_map, setMyMap] = useState(null);
+
+    useEffect(() => setMyMap(Leaflet.map('mapid')), []);
 
     useEffect(() => {
+        const TIMEOUT_ID = setTimeout(() => {
+            my_map.setView([latitude, longitude], 13);
+            Leaflet.tileLayer(
+                `https://api.mapbox.com/styles/v1/${ID}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
+                {
+                    attribution: ATTRIBUTION,
+                    maxZoom: 18,
+                    id: ID,
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: ACCESS_TOKEN
+                }
+            ).addTo(my_map);
+            Leaflet.marker([latitude, longitude]).addTo(my_map);
+        }, 3000);
 
-        const mymap = Leaflet.map('mapid').setView([14.5818, 121.076], 13);
+        return () => clearTimeout(TIMEOUT_ID);
 
-        Leaflet.tileLayer(
-            `https://api.mapbox.com/styles/v1/${ID}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
-            {
-                attribution: ATTRIBUTION,
-                maxZoom: 18,
-                id: ID,
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: ACCESS_TOKEN
-            }
-        ).addTo(mymap);
-
-        Leaflet.marker([14.5818, 121.076]).addTo(mymap);
-    }, []);
-
+    }, [latitude, longitude]);
     
     return (<div id="mapid"></div>);
 };

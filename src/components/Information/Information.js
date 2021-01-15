@@ -1,26 +1,29 @@
 import React from 'react';
 import './Information.scss';
 
-const Information = () => {
+const Information = ({geolocation}) => {
 
+    const {ip_address, location, time_zone, isp} = geolocation;
+
+    const INFORMATION_DETAILS = {
+        'Ip Address': ip_address,
+        'Location': location,
+        'Timezone': time_zone,
+        'Isp': isp
+    };
+
+    const information_details_el = Object.keys(INFORMATION_DETAILS).map((key) => {
+        return (
+            <div className="information__detail" key={key}>
+                <h2 className="information__detail__title">{key}</h2>
+                <p className="information__detail__description">{INFORMATION_DETAILS[key]}</p>
+            </div>
+        );
+    });
+       
     return (
         <div className="information">
-            <div className="information__detail">
-                <h2 className="information__detail__title">Ip Address</h2>
-                <p className="information__detail__description">192.212.174.101</p>
-            </div>
-            <div className="information__detail">
-                <h2 className="information__detail__title">Location</h2>
-                <p className="information__detail__description">Brooklyn, NY 10001</p>
-            </div>
-            <div className="information__detail">
-                <h2 className="information__detail__title">Timezone</h2>
-                <p className="information__detail__description">UTC -05:00</p>
-            </div>
-            <div className="information__detail">
-                <h2 className="information__detail__title">Isp</h2>
-                <p className="information__detail__description">SpaceX Starlink</p>
-            </div>
+            {information_details_el}
         </div>
     );
 

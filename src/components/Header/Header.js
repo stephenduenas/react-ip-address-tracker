@@ -1,12 +1,12 @@
 import React from 'react';
-import './Header.scss';
 import Form from '../Form/Form';
+import './Header.scss';
 
-const Header = () => {
+const Header = ({setGeolocation}) => {
     return (
         <header className="banner">
             <h1 className="heading--1">IP Address Tracker</h1>
-            <Form/>
+            <Form setGeolocation={setGeolocation}/>
         </header>
     );
 };
