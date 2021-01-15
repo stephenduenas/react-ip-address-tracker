@@ -10,10 +10,16 @@ const Map = ({geolocation}) => {
     const ID = 'mapbox/streets-v11';
     const [my_map, setMyMap] = useState(null);
 
-    useEffect(() => setMyMap(Leaflet.map('mapid')), []);
-
     useEffect(() => {
+        setMyMap(Leaflet.map('mapid'));
+    }, []);
+    
+    useEffect(() => {
+        const MILLISECONDS = 500;
         const TIMEOUT_ID = setTimeout(() => {
+            if (my_map === null) {
+                return;
+            }
             my_map.setView([latitude, longitude], 13);
             Leaflet.tileLayer(
                 `https://api.mapbox.com/styles/v1/${ID}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
@@ -27,9 +33,11 @@ const Map = ({geolocation}) => {
                 }
             ).addTo(my_map);
             Leaflet.marker([latitude, longitude]).addTo(my_map);
-        }, 3000);
+        }, MILLISECONDS);
 
-        return () => clearTimeout(TIMEOUT_ID);
+        return () => {
+            clearTimeout(TIMEOUT_ID)
+        };
 
     }, [latitude, longitude]);
     
